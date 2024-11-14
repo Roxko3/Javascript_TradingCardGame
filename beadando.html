@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trading Card Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="Final_images/icon.ico" />
+  </head>
+  <body>
+    <img class="float" src="Final_images/Book.png" id="floatBook" />
+    <img class="float" src="Final_images/PixelPackSmall.png" id="floatPack" />
+
+    <div>
+      <div class="flexDiv">
+        <span class="stat ATK defaultHidden" id="eAtk"></span>
+        <div>
+          <canvas class="enemy" id="enemy1"></canvas>
+          <canvas class="enemy" id="enemy2"></canvas>
+          <canvas class="enemy" id="enemy3"></canvas>
+        </div>
+        <span class="stat HP defaultHidden" id="eHp"></span>
+      </div>
+
+      <div>
+        <div class="flexDiv">
+          <h1 id="fight" class="border">Harc</h1>
+          <canvas class="defaultHidden" id="dice"></canvas>
+          <h2 id="cancel" class="border">Megse</h2>
+        </div>
+        <h1 class="defaultHidden" id="gameOver">Game over</h1>
+        <h2 id="ok"><span class="border">Tovabb</span></h2>
+      </div>
+
+      <div>
+        <div class="flexDiv">
+          <span class="stat ATK defaultHidden" id="pAtk">2</span>
+          <div>
+            <canvas id="player"></canvas>
+          </div>
+          <span class="stat HP defaultHidden" id="pHp">10</span>
+        </div>
+        <h1 id="cardSelect"><span class="border">Kartya valasztas</span></h1>
+        <div class="flexDiv" id="deck"></div>
+      </div>
+    </div>
+
+    <dialog id="cardBook">
+      <div class="page-content">
+        <div class="page" id="leftPage"></div>
+
+        <div class="page" id="rightPage"></div>
+
+        <img
+          class="btn"
+          src="Final_images/redx.png"
+          width="50px"
+          id="closeIcon"
+        />
+
+        <img
+          class="btn"
+          src="Final_images/arrow.png"
+          width="50px"
+          id="arrowLeft"
+        />
+
+        <img
+          class="btn"
+          src="Final_images/arrow.png"
+          width="50px"
+          id="arrowRight"
+        />
+      </div>
+    </dialog>
+    <dialog id="packOpening">
+      <img
+        class="btn"
+        src="Final_images/redx.png"
+        width="50px"
+        id="closePack"
+      />
+      <h1 id="packNumber">Csomagok: 0</h1>
+      <div id="packOpen">
+        <img id="pack" width="80%" src="Final_images/PixelPackBig.png" />
+      </div>
+      <h1 id="packOpenBtn">Nyitas</h1>
+    </dialog>
+    <script src="index.js"></script>
+  </body>
+</html>
