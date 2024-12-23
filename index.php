@@ -15,7 +15,7 @@ if(!isset($userID)){
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trading Card Game</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" defer/>
     <link
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap"
       rel="stylesheet"
@@ -27,10 +27,14 @@ if(!isset($userID)){
     <img class="float" src="Final_images/Book.png" id="floatBook" />
     <img class="float" src="Final_images/PixelPackSmall.png" id="floatPack" />
     <a
+      id="github"
       target="_blank"
       href="https://github.com/Roxko3/Javascript_TradingCardGame"
       >Github</a>
 
+    <form id="logout" action="logout.php">
+      <button id="btnLogout" type="submit">Kijelentkezes</button>    
+    </form>
     <div>
       <div class="flexDiv">
         <span class="stat ATK defaultHidden" id="eAtk"></span>
@@ -133,6 +137,7 @@ const okBtn = document.getElementById("ok");
 const cancelBtn = document.getElementById("cancel");
 const die = document.getElementById("dice");
 const gameOver = document.getElementById("gameOver");
+const logout = document.getElementById("logout");
 
 arrowLeft.style.display = "none";
 
@@ -493,6 +498,7 @@ fightBtn.addEventListener("click", () => {
   cancelBtn.style.visibility = "hidden";
   fightBtn.style.visibility = "hidden";
   cardSelect.style.visibility = "hidden";
+  logout.style.visibility = "hidden";
   document.getElementById("enemy" + selectedEnemy.id).style.pointerEvents =
     "none";
   fight({
@@ -679,6 +685,7 @@ okBtn.addEventListener("click", () => {
   enemyHp.style.visibility = "hidden";
   floatBook.style.visibility = "visible";
   floatPack.style.visibility = "visible";
+  logout.style.visibility = "visible";
   deck.style.visibility = "hidden";
   deck.innerHTML = null;
   cardSelect.style.visibility = "hidden";
