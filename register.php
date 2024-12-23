@@ -21,11 +21,17 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         if(empty($username)){
             $errors['username'] = "Kotelezo felhasznalonevet megadni!";
         }
+        if(strlen($username)>20){
+            $errors['usernameLength'] = "Felhasznalonev tul hosszu! (max 20)";
+        }
         if($stmtUsername->rowCount() == 1){
             $errors['taken'] = "Letezik felhasznalo a megadott nevvel!";
         } 
         if(empty($passwordRaw)){
             $errors['password'] = "Kotelezo jelszot megadni!";
+        }
+        if(strlen($passwordRaw)>20){
+            $errors['passwordLength'] = "Jelszo tul hosszu! (max 20)";
         }
         if(empty($errors)) {
             $sql="INSERT INTO users (username, password, packs) VALUES (?,?,?)";
@@ -72,10 +78,16 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
             <?php if(isset($errors['taken'])) : ?>
                 <span style="color: red"><?= htmlspecialchars($errors['taken'])?></span><br/>
             <?php endif; ?>
+            <?php if(isset($errors['usernameLength'])) : ?>
+                <span style="color: red"><?= htmlspecialchars($errors['usernameLength'])?></span><br/>
+            <?php endif; ?>
             <label for="password">Jelszo</label><br/>
             <input type="password" name="password" id="password"/><br/>
             <?php if(isset($errors['password'])) : ?>
                 <span style="color: red"><?= htmlspecialchars($errors['password'])?></span>
+            <?php endif; ?>
+            <?php if(isset($errors['passwordLength'])) : ?>
+                <span style="color: red"><?= htmlspecialchars($errors['passwordLength'])?></span><br/>
             <?php endif; ?>
             <?php if(!empty($successMessage)) :?>
                 <span style="color: lime"><?= htmlspecialchars($successMessage) ?></span>
